@@ -6,12 +6,12 @@ interface OrdersBoardProps {
 }
 
 
-export function OrdersBoard(props: OrdersBoardProps) {
+export function OrdersBoard({icon, title}: OrdersBoardProps) {
   return (
     <Board>
         <header>
-          <span>{props.icon}</span>
-          <strong>{props.title}</strong>
+          <span>{icon}</span>
+          <strong>{title}</strong>
           <span>(1)</span>
         </header>
 
