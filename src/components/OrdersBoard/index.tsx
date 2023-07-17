@@ -12,15 +12,19 @@ interface OrdersBoardProps {
 export function OrdersBoard({icon, title, orders}: OrdersBoardProps) {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [selectedOrder, setSelectedOrder] = useState<null | Order>(null);
 
   function handleOpenModal(order: Order) {
     setIsModalVisible(true);
+    setSelectedOrder(order);
   }
 
   return (
     <Board>
-      <OrderModal visible={isModalVisible}/>
+      <OrderModal
+      visible={isModalVisible}
+      order={selectedOrder}
+      />
         <header>
           <span>{icon}</span>
           <strong>{title}</strong>
