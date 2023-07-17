@@ -13,6 +13,9 @@ export function OrderModal({ visible, order } : OrderModalProps) {
     return null;
   }
 
+  const total = order.products.reduce((total, {product, quantity}) => {
+    return total + (product.price * quantity);
+  }, 0)
 
 
   return (
@@ -63,6 +66,10 @@ export function OrderModal({ visible, order } : OrderModalProps) {
         ))}
         </div>
 
+        <div className="total">
+          <span>Total</span>
+          <strong>{formatCurrency(total)}</strong>
+        </div>
       </OrderDetails>
     </ModalBody>
   </Overlay>
